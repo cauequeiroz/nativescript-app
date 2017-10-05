@@ -4,17 +4,15 @@
     padding-top: 10;
 }
 
-.home {
-    margin-left: 30;
-    margin-right: 30;
-    margin-top: 20%;
+.profile {
+    padding: 40% 40 0;
 }
 
-.home .buttons {
+.profile .buttons {
     margin-top: 30%;
 }
 
-.home .info {
+.profile .info {
     margin-top: 20;
     horizontal-align: center;
 }

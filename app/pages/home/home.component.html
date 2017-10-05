@@ -1,12 +1,17 @@
-<StackLayout class="home">
-    <Image *ngIf="user_image" src="{{ user_image }}" class="avatar"></Image>
-    <StackLayout class="info">
-        <Label text="ID:" class="label"></Label>
-        <Label text="{{ user_id }}"></Label>
-        <Label text="NAME:" class="label"></Label>
-        <Label text="{{ user_name }}"></Label>
+<TabView selectedIndex="0"  (selectedIndexChange)="onIndexChanged($event)" sdkExampleTitle sdkToggleNavButton>
+    <StackLayout *tabItem="{title: 'Profile'}" class="profile">
+        <Image *ngIf="user_image" src="{{ user_image }}" class="avatar"></Image>
+        <StackLayout class="info">
+            <Label text="ID:" class="label"></Label>
+            <Label text="{{ user_id }}"></Label>
+            <Label text="NAME:" class="label"></Label>
+            <Label text="{{ user_name }}"></Label>
+        </StackLayout>
+        <StackLayout class="buttons">
+            <FacebookLoginButton (logout)="onLogout($event)"></FacebookLoginButton>
+        </StackLayout>        
     </StackLayout>
-    <StackLayout class="buttons">
-        <FacebookLoginButton (logout)="onLogout($event)"></FacebookLoginButton>
+    <StackLayout *tabItem="{title: 'Videos'}" class="videos">
+        
     </StackLayout>
-</StackLayout>
+</TabView>
