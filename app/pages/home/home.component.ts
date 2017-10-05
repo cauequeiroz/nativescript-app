@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Page } from 'ui/page';
 
 @Component({
     moduleId: module.id,
@@ -6,4 +7,14 @@ import { Component } from '@angular/core';
     templateUrl: './home.component.html',
     styleUrls: ['./home-common.css']
 })
-export class HomeComponent {}
+export class HomeComponent implements OnInit {
+
+    constructor(
+        private page: Page
+    ){}
+
+    ngOnInit() {
+
+        this.page.actionBarHidden = true;
+    }
+}
