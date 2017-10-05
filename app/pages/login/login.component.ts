@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as Facebook from "nativescript-facebook";
 import { AppConfig } from '../../app.config';
+import { Page } from 'ui/page';
 
 @Component({
     moduleId: module.id,
@@ -9,11 +10,17 @@ import { AppConfig } from '../../app.config';
     templateUrl: './login.component.html',
     styleUrls: ['./login-common.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
     constructor(
-        private router: Router
+        private router: Router,
+        private page: Page
     ){}
+
+    ngOnInit() {
+
+        this.page.actionBarHidden = true;
+    }
 
     onLogin(event: Facebook.LoginEventData) {
         if (event.error) {

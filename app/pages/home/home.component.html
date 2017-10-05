@@ -6,4 +6,7 @@
         <Label text="NAME:" class="label"></Label>
         <Label text="{{ user_name }}"></Label>
     </StackLayout>
+    <StackLayout class="buttons">
+        <FacebookLoginButton (logout)="onLogout($event)"></FacebookLoginButton>
+    </StackLayout>
 </StackLayout>
