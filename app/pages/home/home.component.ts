@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Page } from 'ui/page';
+import {registerElement} from "nativescript-angular/element-registry";
+registerElement("VideoPlayer", () => require("nativescript-videoplayer").Video);
 
 @Component({
     moduleId: module.id,
