@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { NativeScriptFacebookModule } from "nativescript-facebook/angular";
+import { NativeScriptHttpModule } from "nativescript-angular/http";
 import { routes, navigableComponents } from "./app.routing";
 import { AppComponent } from "./app.component";
 
@@ -17,7 +18,8 @@ application.on(application.launchEvent, function (args) {
         NativeScriptModule,
         NativeScriptRouterModule,
         NativeScriptRouterModule.forRoot(routes),
-        NativeScriptFacebookModule
+        NativeScriptFacebookModule,
+        NativeScriptHttpModule
     ],
     declarations: [
         AppComponent,

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import * as Facebook from "nativescript-facebook";
+import { AppConfig } from '../../app.config';
 
 @Component({
     moduleId: module.id,
@@ -18,7 +19,7 @@ export class LoginComponent {
         if (event.error) {
             alert("Error during login: " + event.error);
         } else {
-            console.log('Token: ' + event.loginResponse.token);
+            AppConfig.token = event.loginResponse.token;
             this.router.navigate(['/home']);
         }
     }
