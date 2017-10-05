@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import * as Facebook from "nativescript-facebook";
 import { AppConfig } from '../../app.config';
 import { Page } from 'ui/page';
+import { Http } from '@angular/http';
 
 @Component({
     moduleId: module.id,
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private page: Page
+        private page: Page,
+        private http: Http
     ){}
 
     ngOnInit() {
@@ -27,7 +29,27 @@ export class LoginComponent implements OnInit {
             alert("Error during login: " + event.error);
         } else {
             AppConfig.token = event.loginResponse.token;
-            this.router.navigate(['/home']);
+
+            this.http
+                .get(AppConfig.facebook_api + '/me?access_token=' + AppConfig.token)
+                .subscribe(
+                    (res) => {
+                        let response = res.json();
+
+                        AppConfig.user_name = response['name'];
+                        AppConfig.user_id = response['id'];
+
+                        this.http
+                            .get(AppConfig.facebook_api + '/' + AppConfig.user_id + '/picture?type=large&redirect=false&access_token=' + AppConfig.token)
+                            .subscribe(
+                                (res) => {
+                                    let response = res.json();
+                                    AppConfig.user_image = response['data']['url'];
+                                    this.router.navigate(['/home']);
+                                }
+                            )
+                    }
+                )
         }
     }
 }

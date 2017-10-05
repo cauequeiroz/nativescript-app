@@ -1,0 +1,23 @@
+.label {
+    font-size: 10;
+    font-weight: bold;
+    padding-top: 10;
+}
+
+.profile {
+    padding: 40% 40 0;
+}
+
+.buttons {
+    margin-top: 30%;
+}
+
+.info {
+    margin-top: 20;
+    horizontal-align: center;
+}
+
+.avatar {
+    width: 150;
+    height: auto;
+}
