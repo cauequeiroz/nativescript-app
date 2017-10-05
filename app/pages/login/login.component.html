@@ -1,1 +1,3 @@
-<Button text="Login with Facebook" (tap)="login()"></Button>
+<StackLayout verticalAlignment="center">
+    <FacebookLoginButton (login)="onLogin($event)"></FacebookLoginButton>
+</StackLayout>
