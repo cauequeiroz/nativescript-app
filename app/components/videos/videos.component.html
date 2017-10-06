@@ -1,0 +1,9 @@
+<StackLayout class="page">
+    <ListView [items]="videos" class="list-group">
+        <ng-template let-item="item">
+            <Label
+                [text]="'Day ' + item.day + ': ' +item.title"
+                class="list-group-item"></Label>
+        </ng-template>
+    </ListView>
+</StackLayout>

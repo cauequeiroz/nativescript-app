@@ -8,6 +8,8 @@ import { routes, navigableComponents } from "./app.routing";
 import { AppComponent } from "./app.component";
 
 import { ProfileComponent } from './components/profile/profile.component';
+import { VideosComponent } from './components/videos/videos.component';
+import { Videos } from './components/videos/videos';
 
 let nsFacebook = require('nativescript-facebook');
 
@@ -26,7 +28,11 @@ application.on(application.launchEvent, function (args) {
     declarations: [
         AppComponent,
         ...navigableComponents,
-        ProfileComponent
+        ProfileComponent,
+        VideosComponent
+    ],
+    providers: [
+        Videos
     ],
     bootstrap: [ AppComponent ]
 })
